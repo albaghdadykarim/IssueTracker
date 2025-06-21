@@ -1,5 +1,5 @@
-﻿using IssueTrackerApi.Enums;
-namespace IssueTrackerApi.Models.Domain
+﻿using EntityFramework.Data.Enums;
+namespace EntityFramework.Data.Models.Domain
 {
     public class Issue
     {

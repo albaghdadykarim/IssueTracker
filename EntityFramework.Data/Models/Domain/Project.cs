@@ -1,4 +1,4 @@
-﻿namespace IssueTrackerApi.Models.Domain
+﻿namespace EntityFramework.Data.Models.Domain
 {
     public class Project
     {

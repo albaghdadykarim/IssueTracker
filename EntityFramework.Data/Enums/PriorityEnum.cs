@@ -1,4 +1,4 @@
-﻿namespace IssueTrackerApi.Enums
+﻿namespace EntityFramework.Data.Enums
 {
     public enum PriorityEnum
     {
