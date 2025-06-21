@@ -6,3 +6,5 @@
 /IssueTrackerApi/.vs
 /IssueTrackerApi/bin/Debug/net8.0
 /IssueTrackerApi/obj
+/EntityFramework.Data/obj
+/EntityFramework.Data/bin/Debug/net8.0
