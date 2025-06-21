@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EntityFramework.Data
 {
-    public class IssueTrackerDbContext : DbContext
+    public class IssueTrackerDbContext : DbContext , IIssueTrackerDbContext
     {
 
         public IssueTrackerDbContext(DbContextOptions dbContextOptions) :base(dbContextOptions) { }
