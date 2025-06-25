@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EntityFramework.Data\EntityFramework.Data.csproj" />
+    <ProjectReference Include="..\IssueTracker.Controllers\IssueTracker.Controllers.csproj" />
   </ItemGroup>
 
 </Project>
