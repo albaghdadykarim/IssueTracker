@@ -9,6 +9,7 @@ using EntityFramework.Data.Models.Domain;
 using EntityFramework.Data.Models.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace IssueTracker.Controllers
 {
@@ -23,22 +24,22 @@ namespace IssueTracker.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            
-            return Ok(_issueTrackerDbContext.Projects.ToList());
+            var allProjects = await _issueTrackerDbContext.Projects.ToListAsync();
+            return Ok(allProjects);
         }
 
         [HttpPost]
-        public IActionResult AddProject ([FromBody] ProjectDTO projectDTO)
+        public async  Task<IActionResult> AddProject ([FromBody] ProjectDTO projectDTO)
         {
             var project_ = new Project 
             { 
                 Name = projectDTO.Name,
                 Description = projectDTO.Description
             };
-            _issueTrackerDbContext.Projects.Add(project_);
-            _issueTrackerDbContext.SaveChanges();
+            await _issueTrackerDbContext.Projects.AddAsync(project_);
+            await _issueTrackerDbContext.SaveChangesAsync();
             return Ok();
         }
     }
