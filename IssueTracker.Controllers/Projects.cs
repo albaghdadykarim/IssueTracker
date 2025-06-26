@@ -7,6 +7,7 @@ using System.Web.Http.Controllers;
 using EntityFramework.Data;
 using EntityFramework.Data.Models.Domain;
 using EntityFramework.Data.Models.DTOs;
+using IssueTrackerRepo;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -18,15 +19,17 @@ namespace IssueTracker.Controllers
     public class Projects :ControllerBase
     {
         private readonly IssueTrackerDbContext _issueTrackerDbContext;
-        public Projects(IssueTrackerDbContext issueTrackerDbContext)
+        private readonly IProjectsRepo _projectRepo;
+        public Projects(IssueTrackerDbContext issueTrackerDbContext ,IProjectsRepo projectRepo)
         {
             _issueTrackerDbContext = issueTrackerDbContext;
+            _projectRepo = projectRepo;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var allProjects = await _issueTrackerDbContext.Projects.ToListAsync();
+            var allProjects = await _projectRepo.GetAllAsync();
             return Ok(allProjects);
         }
 

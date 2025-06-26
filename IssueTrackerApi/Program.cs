@@ -1,3 +1,4 @@
+using IssueTrackerRepo;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
@@ -15,7 +16,11 @@ builder.Services.AddDbContext<EntityFramework.Data.IssueTrackerDbContext>(option
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("IssueTrackerConnectionString"),
         b => b.MigrationsAssembly("EntityFramework.Data")
-    )); var app = builder.Build();
+    )); 
+
+builder.Services.AddScoped<IProjectsRepo , ProjectRepo>();
+
+var app = builder.Build();
 
 
 // Configure the HTTP request pipeline.
