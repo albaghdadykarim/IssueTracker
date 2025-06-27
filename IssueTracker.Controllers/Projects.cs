@@ -32,6 +32,12 @@ namespace IssueTracker.Controllers
             var allProjects = await _projectRepo.GetAllAsync();
             return Ok(allProjects);
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            var allProjects = await _projectRepo.GetbyId(id);
+            return Ok(allProjects);
+        }
 
         [HttpPost]
         public async  Task<IActionResult> AddProject ([FromBody] ProjectDTO projectDTO)
