@@ -36,13 +36,28 @@ namespace IssueTracker.Controllers
         [HttpPost]
         public async  Task<IActionResult> AddProject ([FromBody] ProjectDTO projectDTO)
         {
+
             var project_ = new Project 
             { 
                 Name = projectDTO.Name,
                 Description = projectDTO.Description
             };
-            await _issueTrackerDbContext.Projects.AddAsync(project_);
-            await _issueTrackerDbContext.SaveChangesAsync();
+
+            var _project = await _projectRepo.CreateProject(project_);
+            return Ok();
+        }
+        [HttpDelete]
+        public async Task<IActionResult> DelteProject(Guid id)
+        {
+            var _project = await _projectRepo.DeleteProject(id);
+            return Ok();
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateProject(ProjectDTO _project)
+        {
+            var project_ = new Project { Name = _project.Name, Description = _project.Description };
+            var _ = await _projectRepo.UpdateProject(project_);
             return Ok();
         }
     }

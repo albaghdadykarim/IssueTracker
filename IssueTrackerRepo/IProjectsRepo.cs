@@ -12,5 +12,12 @@ namespace IssueTrackerRepo
     {
 
         public Task<List<Project>> GetAllAsync();
+
+        public Task<Project?> GetbyId(Guid Id);
+
+        public  Task<Project> CreateProject(Project _project);
+        public Task<Project?> DeleteProject(Guid id);
+
+        public Task<Project?> UpdateProject(Project project);
     }
 }
