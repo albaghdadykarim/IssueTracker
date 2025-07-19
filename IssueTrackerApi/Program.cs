@@ -1,3 +1,4 @@
+using IssueTracker.AutoMapper;
 using IssueTrackerRepo;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.EntityFrameworkCore;
@@ -19,7 +20,7 @@ builder.Services.AddDbContext<EntityFramework.Data.IssueTrackerDbContext>(option
     )); 
 
 builder.Services.AddScoped<IProjectsRepo , ProjectRepo>();
-
+builder.Services.AddAutoMapper(typeof(ProjectProfile).Assembly);
 var app = builder.Build();
 
 
