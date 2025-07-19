@@ -13,3 +13,5 @@
 /IssueTracker.sln
 /IssueTrackerRepo/bin/Debug/net8.0
 /IssueTrackerRepo/obj
+/IssueTracker.AutoMapper/bin/Debug/net8.0
+/IssueTracker.AutoMapper/obj
