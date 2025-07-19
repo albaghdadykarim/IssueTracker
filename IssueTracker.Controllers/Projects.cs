@@ -42,7 +42,10 @@ namespace IssueTracker.Controllers
         [HttpPost]
         public async  Task<IActionResult> AddProject ([FromBody] ProjectDTO projectDTO)
         {
-
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             var project_ = new Project 
             { 
                 Name = projectDTO.Name,
