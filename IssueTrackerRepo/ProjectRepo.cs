@@ -21,9 +21,23 @@ namespace IssueTrackerRepo
             _issueTrackerDbContext = issueTrackerDbContext;
         }
 
-        public async Task<List<Project>> GetAllAsync()
+        public async Task<List<Project>> GetAllAsync( string? filterby = null, string? data = null)
         {
-            return await _issueTrackerDbContext.Projects.ToListAsync();
+            var projects = _issueTrackerDbContext.Projects.AsQueryable();
+            if (!string.IsNullOrEmpty(filterby) && !string.IsNullOrEmpty(data))
+            {
+                if (filterby.ToLower() == "name")
+                {
+                    projects = projects.Where(p => p.Name.Contains(data));
+                }
+                else if (filterby.ToLower() == "description")
+                {
+                    projects = projects.Where(p => p.Description.Contains(data));
+                }
+            }
+
+            return await projects.ToListAsync();
+            //return await _issueTrackerDbContext.Projects.ToListAsync();
 
         }
         public async Task<Project?> GetbyId(Guid Id)

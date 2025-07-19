@@ -11,7 +11,7 @@ namespace IssueTrackerRepo
     public interface IProjectsRepo
     {
 
-        public Task<List<Project>> GetAllAsync();
+        public Task<List<Project>> GetAllAsync(string? filterby = null,  string? data =null);
 
         public Task<Project?> GetbyId(Guid Id);
 

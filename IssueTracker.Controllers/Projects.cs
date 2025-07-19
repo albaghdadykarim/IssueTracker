@@ -27,9 +27,9 @@ namespace IssueTracker.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery] string? filterby = null , [FromQuery] string? data = null)
         {
-            var allProjects = await _projectRepo.GetAllAsync();
+            var allProjects = await _projectRepo.GetAllAsync(filterby,data);
             return Ok(allProjects);
         }
         [HttpGet("{id}")]
