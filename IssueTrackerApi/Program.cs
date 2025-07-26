@@ -1,5 +1,8 @@
+using EntityFramework.Data;
+using EntityFramework.Data.Models.Domain;
 using IssueTracker.AutoMapper;
 using IssueTrackerRepo;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
@@ -18,6 +21,12 @@ builder.Services.AddDbContext<EntityFramework.Data.IssueTrackerDbContext>(option
         builder.Configuration.GetConnectionString("IssueTrackerConnectionString"),
         b => b.MigrationsAssembly("EntityFramework.Data")
     )); 
+builder.Services.AddDbContext<AuthContext>(options =>
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("AuthConnection"),
+        b => b.MigrationsAssembly("EntityFramework.Data")
+    ));
+builder.Services.AddIdentity<ApplicationUser,IdentityRole>().AddEntityFrameworkStores<AuthContext>().AddDefaultTokenProviders();
 
 builder.Services.AddScoped<IProjectsRepo , ProjectRepo>();
 builder.Services.AddAutoMapper(typeof(ProjectProfile).Assembly);

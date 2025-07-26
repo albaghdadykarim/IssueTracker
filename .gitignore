@@ -15,3 +15,7 @@
 /IssueTrackerRepo/obj
 /IssueTracker.AutoMapper/bin/Debug/net8.0
 /IssueTracker.AutoMapper/obj
+/AuthGateway/obj/Debug/net8.0
+/AuthGateway/obj/Release/net8.0
+/AuthGateway/obj
+/EntityFramework.Data/Migrations/Auth
