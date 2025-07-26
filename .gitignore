@@ -19,3 +19,4 @@
 /AuthGateway/obj/Release/net8.0
 /AuthGateway/obj
 /EntityFramework.Data/Migrations/Auth
+/AuthGateway/bin/Debug/net8.0
