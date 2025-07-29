@@ -6,7 +6,7 @@ namespace EntityFramework.Data
     public class IssueTrackerDbContext : DbContext , IIssueTrackerDbContext
     {
 
-        public IssueTrackerDbContext(DbContextOptions dbContextOptions) :base(dbContextOptions) { }
+        public IssueTrackerDbContext(DbContextOptions<IssueTrackerDbContext> dbContextOptions) :base(dbContextOptions) { }
         
         public DbSet<User> Users { get; set; }
         public DbSet<Project> Projects { get; set; }

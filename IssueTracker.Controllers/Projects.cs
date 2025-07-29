@@ -8,12 +8,14 @@ using EntityFramework.Data;
 using EntityFramework.Data.Models.Domain;
 using EntityFramework.Data.Models.DTOs;
 using IssueTrackerRepo;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace IssueTracker.Controllers
 {
+    [Authorize]
     [Route("api/[Controller]")]
     [ApiController]
     public class Projects :ControllerBase
