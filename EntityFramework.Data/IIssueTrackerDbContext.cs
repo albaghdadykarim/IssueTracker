@@ -14,5 +14,6 @@ namespace EntityFramework.Data
          DbSet<User> Users { get; set; }
          DbSet<Project> Projects { get; set; }
          DbSet<Issue> Issues { get; set; }
+        public DbSet<Image> Images { get; set; }
     }
 }

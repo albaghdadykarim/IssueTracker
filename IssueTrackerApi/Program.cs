@@ -57,6 +57,7 @@ builder.Services.AddScoped<ITokenService , TokenService>();
 ////////////////////////////////////////
 
 builder.Services.AddScoped<IProjectsRepo , ProjectRepo>();
+builder.Services.AddScoped<IImageUploaderRepo1, ImageUploaderRepo>();
 builder.Services.AddAutoMapper(typeof(ProjectProfile).Assembly);
 var app = builder.Build();
 
